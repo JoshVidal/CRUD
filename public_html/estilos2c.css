@@ -1,0 +1,928 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+/* Estilos del botón flotante */
+
+   .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero__title {
+      color: #fff;
+      font-size: 50px;
+    }
+
+    .floating-button {
+      position: fixed;
+      bottom: 5%;
+      right: 5%;
+      background-color: #FFFF;
+      color: #0040c1;
+      padding: 10px 20px;
+      border-radius: 50px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /* Estilos del botón flotante al pasar el cursor sobre él */
+    .floating-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilos responsive para el botón flotante */
+    @media screen and (max-width: 768px) {
+      .floating-button {
+        bottom: 3%;
+        right: 3%;
+        font-size: 14px; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+        padding: 8px 16px; /* Espaciado interno más pequeño para pantallas pequeñas */
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .floating-button {
+        bottom: 2%;
+        right: 2%;
+        font-size: 12px; /* Tamaño de fuente aún más pequeño para pantallas muy pequeñas */
+        padding: 6px 12px; /* Espaciado interno aún más pequeño para pantallas muy pequeñas */
+      }
+    }
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+ h1, h2, h3, h5, h7 {
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #ff7f00;
+        }
+
+        h5 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff7f00;
+        }
+
+        h7 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff7f00;
+        }
+
+        /* Estilo para los párrafos */
+        p, .p1, p2, p3, p4, p6, p7, p8 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .p1 {
+            font-size: 10px;
+            text-align: justify;
+        }
+
+        p2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p3 {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: black;
+            text-align: justify;
+        }
+
+        p4 {
+            font-size: 18px;
+            color: rgb(0, 0, 0);
+        }
+
+        p7 {
+            text-transform: uppercase;
+            color: black;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        p6 {
+            font-size: 13px;
+        }
+
+        p8 {
+            color: black;
+            font-size: 25px;
+        }
+
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f9fe;
+    font-family: 'Raleway', sans-serif;
+}
+
+.registro-form {
+    background-color: #00000000;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+/* Estilos generales */
+body {
+    
+    background-color: #F3F9FE;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Fijamos el alto mínimo del body al 100% de la altura de la ventana */
+    font-family: 'Raleway', sans-serif;; /* Cambia la tipografía a Roboto */
+    margin: 0;
+    padding: 0;
+}
+
+
+ 
+  
+  /* Main styles */
+  .animated-background {
+    /* img size is 50x50 */
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+    animation: bg-scrolling-reverse .92s infinite;
+    animation-timing-function: linear;
+   
+  }
+  .animated-background2 {
+    /* img size is 50x50 */
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+    animation: bg-scrolling-reverse .92s infinite;
+    animation-timing-function: linear;
+  }
+  
+          @keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+  
+  
+  .info {
+    font-family: 'Raleway', sans-serif; 
+    font-size: 20px;
+    text-align: justify;
+    padding: 2%;
+
+}
+
+
+header {
+    background-color: #0096FF;
+    color: #FFF;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Agregamos esta propiedad para posicionar elementos dentro del header */
+}
+
+    header #img1 {
+        position: absolute;
+        top: 19px;
+        right: 10px;
+        max-width: 150px;
+        height: auto;
+        width: 90%;
+        border-radius: 50%; /* Agregamos un borde redondeado a la imagen */
+    }
+
+   
+
+
+
+
+
+    button{
+        background-color: #0040c1;
+        color: #FFF;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: 'Raleway', sans-serif;
+    }
+
+main {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #0040c1;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0069C0;
+    }
+
+
+
+
+.hero {
+    background-color: #0040C1;
+    position: relative;
+    height: 20vh;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    color: #FFF;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.hero__title {
+    color:  #89f8f5;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    font-size: 55px;
+    font-family: 'Raleway', sans-serif;
+    z-index: 1;
+}
+
+footer {
+    background-color: #0096FF;
+    color: #FFF;
+    padding: 10px;
+    text-align: center;
+    animation: fade-in 0.5s ease;
+    margin-top: auto; /* Usamos margin-top: auto para que el footer se ajuste automáticamente hacia abajo */
+}
+
+
+
+.animated-image {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: 200px;
+    animation: zoomIn 1s infinite; /* Aplica la animación zoomIn con una duración de 2 segundos y se repite infinitamente */
+    
+}
+
+
+.animated-image2 {
+    width: 400px; /* Ajusta el tamaño de la imagen */
+    height: 400px;
+    animation: zoomIn 1s infinite; /* Aplica la animación zoomIn con una duración de 2 segundos y se repite infinitamente */
+   margin-right: 20%;
+   margin-left: 20%;
+    margin-top: 10px;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1); /* Tamaño original de la imagen */
+    }
+    50% {
+        transform: scale(1.2); /* Escala al 120% a la mitad de la animación */
+    }
+    100% {
+        transform: scale(1); /* Vuelve al tamaño original al final de la animación */
+    }
+}
+
+.hero2 {
+    background-color: #00000000;
+    position: relative;
+    height: 20vh;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    background:rgb(0, 0, 0);
+    
+
+}
+
+
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #89f8f5;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 6s ease-in forwards infinite; /* Reducimos el tiempo de animación */
+}
+
+    .cube:nth-child(2n) {
+        border-color: #89f8f5;
+    }
+
+    .cube:nth-child(2) {
+        animation-delay: 1s; /* Reducimos el retardo de la animación */
+        left: 25vw;
+        top: 40vh;
+    }
+
+    .cube:nth-child(3) {
+        animation-delay: 2s; /* Reducimos el retardo de la animación */
+        left: 75vw;
+        top: 50vh;
+    }
+
+    .cube:nth-child(4) {
+        animation-delay: 3s; /* Reducimos el retardo de la animación */
+        left: 90vw;
+        top: 10vh;
+    }
+
+    .cube:nth-child(5) {
+        animation-delay: 4s; /* Reducimos el retardo de la animación */
+        left: 10vw;
+        top: 85vh;
+    }
+
+    .cube:nth-child(6) {
+        animation-delay: 5s; /* Reducimos el retardo de la animación */
+        left: 50vw;
+        top: 10vh;
+    }
+
+/* Estilos responsive */
+@media screen and (max-width: 768px) {
+        header h1 {
+            font-size: 20px;
+        }
+    
+        main {
+            padding: 10px;
+        }
+    
+        input[type="submit"] {
+            padding: 8px 16px;
+        }
+    
+        header #img1 {
+            max-width: 100px; /* Ajustamos el tamaño de la imagen para pantallas más pequeñas */
+        }
+}
+    
+@keyframes bg-scrolling-reverse {
+        100% {
+          background-position: 50px 50px;
+        }
+}
+    
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .navegacion ul {
+        display: none; /* Ocultar la lista de enlaces en pantallas pequeñas */
+    }
+    
+    .menu-btn {
+        display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    
+    .menu-btn img {
+        width: 30px; /* Tamaño del icono de menú */
+    }
+    
+    .menu-btn.active img {
+        transform: rotate(90deg); /* Girar el icono de menú cuando está activo */
+    }
+    
+    .menu-container.active ul {
+        display: flex; /* Mostrar la lista de enlaces cuando el menú está activo */
+    }
+    
+    .menu-container {
+        display: flex;
+        align-items: center;
+        height: 90px;
+        background-color: 
+        #f3f9fe; /* Fondo blanco para la barra de navegación */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0); /* Sombra suave */
+    }
+    
+    .menu-container ul {
+        list-style: none;
+        display: none; /* Ocultar la lista de enlaces por defecto */
+    }
+    
+    .menu-container ul li {
+        margin-left: 10px;
+    }
+    
+    .menu-container ul li a {
+        color: #0051f4;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 12px 15px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    /* Cambiar el color de texto al hacer hover */
+    .menu-container ul li a:hover {
+        color: #ff7f00;
+    }
+}
+
+
+.interior {
+    max-width: 85%;
+    padding: 0 0px;
+   
+    margin: auto;
+}
+
+.navegacion {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    background-color: #f3f9fe; /* Fondo blanco para la barra de navegación */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.583); /* Sombra suave */
+    margin: 0 auto;
+}
+
+
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.navegacion ul li {
+    margin-left: 10px;
+}
+
+.navegacion ul li a {
+    color: #0051f4;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 5px;
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+}
+
+/* Cambiar el color de texto al hacer hover */
+.navegacion ul li a:hover {
+    color: #ff7f00;
+}
+
+/* Estilo para el botón de menú en pantallas pequeñas */
+.menu-btn {
+    display: none; /* Ocultar el botón de menú por defecto */
+}
+
+
+
+.imagen-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+    background-color:    #f3f9fe00;
+    font-family: 'Raleway', sans-serif;
+}
+
+.preguntas-container{
+    width: 45%;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: #f3f9fe;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.583);
+    font-family: 'Raleway', sans-serif;
+
+}
+.archivos-container {
+    width: 45%;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: #f3f9fe;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.583);
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #0040c1;
+    color: #FFF;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0069C0;
+    }
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+   
+}
+
+.pregunta-container p {
+    /* ... otros estilos ... */
+    white-space: normal; /* Permite que el texto ocupe varias líneas */
+}
+
+
+.pregunta-container {
+    
+    overflow-y: auto;
+    width: 95%; /* Ajusta el ancho máximo del contenedor de preguntas */
+    margin: 30px auto; /* Centra el contenedor horizontalmente */
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.583);
+    animation: fade-in 1s; /* Agrega una animación de desvanecimiento */
+    background-color:  
+    #f3f9fe;
+}
+
+/* Estilo para el contenedor de comentarios */
+.comentarios-container {
+    width: 85%; /* Ajusta el ancho máximo del contenedor de comentarios */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 0px;
+    border: 0px solid  rgba(25, 78, 135, 0.001);
+    border-radius: 0px;
+    margin-top: 50px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    animation: fade-in 1s; /* Agrega una animación de desvanecimiento */
+    background-color:
+     rgba(25, 78, 135, 0.001);
+}
+
+/* Estilo para el formulario */
+.comentario-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Estilo para las etiquetas del formulario */
+.comentario-form label {
+    font-size: 16px; /* Aumenta el tamaño de la etiqueta */
+    margin-bottom: 10px; /* Aumenta el espacio inferior */
+}
+
+/* Estilo para los campos de texto y área de texto del formulario */
+.comentario-form input[type="text"],
+.comentario-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Aumenta el espacio inferior */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Aumenta el tamaño del texto */
+}
+
+/* Estilo para el botón del formulario */
+.comentario-form .btn-comentario {
+    padding: 10px 20px;
+    background-color: #0040c1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Aumenta el tamaño del texto */
+    transition: background-color 0.3s; /* Agrega una transición al color de fondo */
+}
+
+/* Cambia el color de fondo del botón al pasar el cursor */
+.comentario-form .btn-comentario:hover {
+    background-color:
+    #ff7f00;
+}
+
+/* Estilo para los bordes de las preguntas y comentarios */
+.comentarios-container hr,
+.pregunta-container hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+/* Estilo para el footer */
+.footer-container {
+    background-color: #0040C1;
+    margin-top:  35px;
+    position: relative;
+    height: 20vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Media query para dispositivos con un ancho máximo de 768px */
+
+
+@media only screen and (max-width: 768px) {
+    .pregunta-container,
+    .comentarios-container {
+        max-width: 100%; 
+    /* Los contenedores ocuparán todo el ancho disponible */
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .navegacion ul {
+        display: none; /* Ocultar la lista de enlaces en pantallas pequeñas */
+    }
+
+    
+    .menu-btn {
+        display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    
+    .menu-btn img {
+        width: 30px; /* Tamaño del icono de menú */
+    }
+    
+    .menu-btn.active img {
+        transform: rotate(90deg); /* Girar el icono de menú cuando está activo */
+    }
+    
+    .menu-container.active ul {
+        display: flex; /* Mostrar la lista de enlaces cuando el menú está activo */
+    }
+    
+    .menu-container {
+        display: flex;
+        align-items: center;
+        height: 90px;
+        background-color: #f3f9fe; /* Fondo blanco para la barra de navegación */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.583); /* Sombra suave */
+    }
+    
+    .menu-container ul {
+        list-style: none;
+        display: none; /* Ocultar la lista de enlaces por defecto */
+    }
+    
+    .menu-container ul li {
+        margin-left: 10px;
+    }
+    
+    .menu-container ul li a {
+        color: #0051f4;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 12px 15px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    /* Cambiar el color de texto al hacer hover */
+    .menu-container ul li a:hover {
+        color: #ff7f00;
+    }
+}
+
+/* Media query para dispositivos con un ancho máximo de 768px */
+@media only screen and (max-width: 768px) {
+    /* Estilos para ajustar el tamaño y el margen del título principal */
+    .hero__title {
+        font-size: 30px;
+        margin: 10px;
+    }
+
+    /* Resto de los estilos para dispositivos con un ancho máximo de 768px */
+}
+
+ /* Estilos responsive */
+ @media screen and (max-width: 768px) {
+    /* Ajuste de tamaños para dispositivos móviles */
+    h1 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    h5 {
+        font-size: 24px;
+    }
+
+    h7 {
+        font-size: 32px;
+    }
+
+    p, .p1, p2, p3, p4, p6, p7, p8 {
+        font-size: 14px;
+    }
+    .imagen-container {
+                height: 40vh; /* Ajusta el tamaño de la imagen en dispositivos móviles */
+            }
+}
+
+
+/* Animación de desvanecimiento */
+
+
+.cube-container {
+   
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Asegúrate de que los cubos no afecten los eventos de clic y desplazamiento */
+    z-index: -1; /* Asegúrate de que los cubos estén detrás de tu contenido */
+}
+
+
+.frame {
+ position: static;
+ left: 25%;
+
+}
+
+        /* Estilos generales */
+        /* ... (No se muestra el contenido anterior para mantener el tamaño del texto) ... */
+
+        /* Estilos para el texto animado */
+        .hero__title-animated {
+            font-size: 80px;
+            font-weight: bold;
+            text-align: center;
+            animation: fadeInUp 2s ease-in-out infinite;
+        }
+
+        /* Animación para el texto */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+          @keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+            
+            
+            
+            
+            
+           /* Estilos para el texto de la barra de navegación */
+nav.navegacion ul li a {
+    font-size: 16px; /* Tamaño de texto predeterminado */
+}
+
+/* Estilos responsive para pantallas más pequeñas */
+@media screen and (max-width: 750px) {
+    nav.navegacion ul li a {
+        font-size: 14px; /* Tamaño de texto para pantallas pequeñas */
+    }
+}
+
+/* Estilos responsive para pantallas aún más pequeñas */
+@media screen and (max-width: 480px) {
+    nav.navegacion ul li a {
+        font-size: 12px; /* Tamaño de texto para pantallas muy pequeñas */
+    }
+}
+
+
+
+
+ 
+            
+        

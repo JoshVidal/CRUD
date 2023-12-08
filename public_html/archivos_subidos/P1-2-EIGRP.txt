@@ -1,0 +1,35 @@
+* * * * * * * * * * * * * * * * * *
+	>> R1
+en
+
+show ip route
+		Las subredes son las que tinen letra C
+config t
+no ip route 0.0.0.0 0.0.0.0 192.168.70.229
+------------------------------------
+	>> EIGRP
+router eigrp 3					//router eigrp 3>> se escribe tal cual, por protocolo
+network	192.168.15.0 0.0.0.255
+network 192.168.25.0 0.0.0.255
+network 192.168.35.0 0.0.0.255
+network 192.168.45.0 0.0.0.255
+network 192.168.70.228 0.0.0.3
+no auto-summary
+passive-interface g0/1
+_____________________________________
+	>> ML1
+ennetwork 192.168.70.228 0.0.0.3
+show ip route
+conf t
+no ip route 0.0.0.0 0.0.0.0 192.168.70.230
+-----------------------------------------
+	>> EIGRP
+router eigrp 3
+network 192.168.10.0 0.0.0.255
+network 192.168.20.0 0.0.0.255
+network 192.168.30.0 0.0.0.255
+network 192.168.70.0 0.0.0.3
+network 192.168.70.228 0.0.0.3
+no auto-summary
+passive-interface g1/0/1			//passive-interface se usa uno por interfaz=>es la interfaz de las subredes
+passive-interface g1/0/2
